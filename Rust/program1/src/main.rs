@@ -1,6 +1,6 @@
 use std::io;
 
-fn min_operation(s: &str) -> (usize, Vec<String>) {
+fn task1(s: &str) -> (usize, Vec<String>) {
     let n = s.len();
     let mut steps = vec![];
     let mut current = String::new();
@@ -35,7 +35,7 @@ fn main() {
     io::stdin().read_line(&mut input).unwrap();
     let input = input.trim();
     
-    let (count, steps) = min_operation(input);
+    let (count, steps) = task1(input);
     
     print!("{} = ", count);
     for (i, step) in steps.iter().enumerate() {

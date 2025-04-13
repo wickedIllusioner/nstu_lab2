@@ -1,4 +1,4 @@
-def min_operation(s)
+def task1(s)
   n = s.length
   steps = []
   current = ""
@@ -28,7 +28,7 @@ def min_operation(s)
 end
 
 input = gets.chomp
-result = min_operation(input)
+result = task1(input)
 
 print "#{result[0]} = "
 puts result[1].join("->")

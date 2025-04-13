@@ -1,4 +1,4 @@
-fun minOperation(s: String): Pair<Int, List<String>> {
+fun task1(s: String): Pair<Int, List<String>> {
     val n = s.length
     val steps = mutableListOf<String>()
     var current = ""
@@ -29,7 +29,7 @@ fun minOperation(s: String): Pair<Int, List<String>> {
 
 fun main() {
     val input = readLine()!!.trim()
-    val (count, steps) = minOperation(input)
+    val (count, steps) = task1(input)
     
     print("$count = ")
     println(steps.joinToString("->"))

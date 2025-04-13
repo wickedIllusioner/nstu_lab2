@@ -1,13 +1,11 @@
-package program3;
-
 import java.util.Scanner;
 
 public class Main {
-    public static int countEven(int num) {
+    public static int countEven(long num) {
         int counter = 0;
         while (num != 0) {
-            int n = num % 10;
-            if (n % 2 == 0) {
+            long n = num % 10;
+            if (n % 2 == 0 && n != 0) {
                 counter++;
             }
             num /= 10;
@@ -20,7 +18,7 @@ public class Main {
         int totalNums = scan.nextInt();
 
         for (int i = 0; i < totalNums; i++) {
-            int number = scan.nextInt();
+            long number = scan.nextLong();
             System.out.println(countEven(number));
         }
 

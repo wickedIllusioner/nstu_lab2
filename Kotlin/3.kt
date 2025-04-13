@@ -1,9 +1,9 @@
-fun countEven(num: Int): Int {
+fun countEven(num: Long): Int {
     var counter = 0
     var tempNum = num
-    while (tempNum != 0) {
+    while (tempNum != 0L) {
         var n = tempNum % 10
-        if (n % 2 == 0) {
+        if (n % 2 == 0L && n != 0L) {
             counter++
         }
         tempNum /= 10
@@ -12,9 +12,9 @@ fun countEven(num: Int): Int {
 }
 
 fun main() {
-    val totalNums = readLine()!!.toInt()
+    val totalNums = readLine()!!.toLong()
     for (i in 1..totalNums) {
-        val number = readLine()!!.toInt()
+        val number = readLine()!!.toLong()
         println(countEven(number))
     }
 }

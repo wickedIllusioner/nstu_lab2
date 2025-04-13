@@ -1,17 +1,9 @@
 import java.util.*;
 
 public class Main {
-    public static class Pair {
-        public int first;
-        public List<String> second;
-        
-        public Pair(int first, List<String> second) {
-            this.first = first;
-            this.second = second;
-        }
-    }
-    
-    public static Pair minOperation(String s) {
+       
+    // Функция будет возвращать объект Object[], содержащий количество операций и список строк
+    public static Object[] task1(String s) {
         int n = s.length();
         List<String> steps = new ArrayList<>();
         StringBuilder current = new StringBuilder();
@@ -29,7 +21,7 @@ public class Main {
                     current.append(s.charAt(j));
                     steps.add(current.toString());
                 }
-                return new Pair(i + 1 + (n - 2*i), steps);
+                return new Object[]{i + 1 + (n - 2*i), steps};
             }
         }
         
@@ -37,15 +29,19 @@ public class Main {
             current.append(s.charAt(i));
             steps.add(current.toString());
         }
-        return new Pair(n, steps);
+        return new Object[]{n, steps};
     }
     
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine().trim();
-        Pair result = minOperation(input);
+        Object[] result = task1(input);
+
+	int count = (int)result[0];
+	@SuppressWarnings("unchecked")
+	List<String> steps = (List<String>)result[1];
         
-        System.out.print(result.first + " = ");
-        System.out.println(String.join("->", result.second));
+    System.out.print(result[0] + " = ");
+	System.out.println(String.join("->", steps));
     }
 }

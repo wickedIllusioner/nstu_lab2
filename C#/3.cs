@@ -8,7 +8,7 @@ class Program
         while (num != 0)
         {
             long n = num % 10;
-            if (n % 2 == 0) counter++;
+            if (n % 2 == 0 && n != 0) counter++;
             num /= 10;
         }
         return counter;

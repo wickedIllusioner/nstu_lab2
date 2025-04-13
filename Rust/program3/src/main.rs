@@ -4,7 +4,7 @@ fn count_even(mut num: i64) -> i64 {
     let mut counter = 0;
     while num != 0 {
         let n: i64 = num % 10;
-        if n % 2 == 0 {
+        if (n % 2 == 0) && (n != 0) {
             counter += 1;
         }
         num /= 10;

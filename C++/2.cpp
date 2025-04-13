@@ -8,13 +8,16 @@
 #include <iostream>
 
 int countRounds(int teams) {
+    // Команда-победитель, завершение рекурсии
     if (teams == 1) {
         return 0;
     }
+    // Кол-во команд четное - сыграно n / 2 матчей, дальше проходят (n/2) команд
     else if (teams % 2 == 0) {
         int matches = teams / 2;
         return matches + countRounds(matches);
     }
+    // Кол-во команд нечетное, сыграно (n-1)/2 матчей, дальше проходят (n-1)/2 + 1 команд
     else {
         int matches = (teams - 1) / 2;
         return matches + countRounds(matches+1);

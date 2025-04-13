@@ -17,7 +17,7 @@ const readline = require('readline').createInterface({
     output: process.stdout
 });
 
-readline.question('Введите количество команд: ', (totalTeams) => {
+readline.question('', (totalTeams) => {
     console.log(countRounds(parseInt(totalTeams)));
     readline.close();
 });

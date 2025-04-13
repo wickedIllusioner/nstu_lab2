@@ -20,17 +20,17 @@ _start:
 	; Вывод строки prompt1
 	mov rdi, prompt1
 	mov rsi, prompt1_len
-	call print_string
+	call print_string	; вызов функции вывода строки
 
 	; Ввод значения N
 	mov rdi, buffer
 	mov rsi, 64
-	call get_value
+	call get_value		; вызов функции чтения строки
 
 	; Преобразование значения N в числовой тип
 	mov rdi, buffer
 	call str_to_int
-	mov r12, rax
+	mov r12, rax		; перенос результата выполнения функции
 
 	; Вывод строки prompt2
 	mov rdi, prompt2
@@ -52,34 +52,34 @@ _start:
 
 .process:
 .skip_spaces:
-	mov al, [r13]
-	cmp al, ' '
-	jne .not_space
-	inc r13
-	jmp .skip_spaces
+	mov al, [r13]		; загрузка текущего символа в al
+	cmp al, ' '		; сравнение с символом пробела
+	jne .not_space		; переход к функции, если символ пробел
+	inc r13			; перемещение указателя на следующий символ
+	jmp .skip_spaces	; повторение проверки
 .not_space:
-	cmp al, 10
-	je .end_prog
-	test al, al
-	jz .end_prog
+	cmp al, 10		; проверка на символ переноса строки
+	je .end_prog		; если да, завершаем выполнение программы
+	test al, al		; проверка на нулевой символ
+	jz .end_prog		; если да, завершаем выполнение
 	mov r15, r13		; сохранение начала числа
 
 .find_end:
-    mov al, [r13]
-    cmp al, ' '
-    je .found_end
-    cmp al, 10
-    je .found_end
-    test al, al
+    mov al, [r13]		; загрузка текущего символа 
+    cmp al, ' '			; проверка на символ пробела
+    je .found_end		; переход к обработке найденного числа
+    cmp al, 10			; проверка на символ переноса
+    je .found_end		
+    test al, al			; нулевой символ - конец числа
     jz .found_end
-    inc r13
+    inc r13			; перемещение указателя на след. символ
     jmp .find_end
 .found_end:
     mov bl, [r13]       ; сохраняем текущий символ
     mov byte [r13], 0   ; временно заменяем на нулевой символ
 
     ; Преобразуем число
-    mov rdi, r15
+    mov rdi, r15		
     call str_to_int
 
     mov [r13], bl       ; восстанавливаем символ
@@ -100,10 +100,10 @@ _start:
     call print_string
 
     ; Переходим к следующему числу
-    inc r14
-    cmp r14, r12        ; проверяем, все ли числа обработаны
-    jge .end_prog
-    jmp .process
+    inc r14			; увеличение счетчика чисел
+    cmp r14, r12 	        ; проверяем, все ли числа обработаны
+    jge .end_prog		; завершаем программу, если обработаны все значения
+    jmp .process		; иначе продолжаем обработку
 
 .end_prog:
     ; Выводим перевод строки
@@ -145,7 +145,7 @@ str_to_int:
 .next_digit:
 	movzx rdx, byte [rdi + rcx]	; загрузка символа в rdx
 	cmp rdx, '0'		; проверка на цифру
-	jb .exit
+	jb .exit		; завершение работы функции
 	cmp rdx, '9'
 	ja .exit
 	sub rdx, '0'		; преобразование символа в цифру
@@ -183,7 +183,7 @@ int_to_str:
 ; Счет четных цифр в числе
 count_even_digits:
 	xor rcx, rcx		; обнуление счетчика
-	mov rbx, 10		; ???
+	mov rbx, 10		; десятичная система счисления
 .next_digit:
 	xor rdx, rdx		; обнуление rdx
 	div rbx

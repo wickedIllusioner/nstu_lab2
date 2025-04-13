@@ -6,7 +6,7 @@ func countEven(number int) int {
 	counter := 0
 	for number != 0 {
 		n := number % 10
-		if n%2 == 0 {
+		if n % 2 == 0 && n != 0 {
 			counter++
 		}
 		number /= 10

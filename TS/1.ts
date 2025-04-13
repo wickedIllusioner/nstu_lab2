@@ -1,4 +1,4 @@
-function minOperation(s: string): [number, string[]] {
+function task1(s: string): [number, string[]] {
     const n = s.length;
     const steps: string[] = [];
     let current = "";
@@ -34,7 +34,7 @@ const rl = readline.createInterface({
 });
 
 rl.question('', (input) => {
-    const [count, steps] = minOperation(input.trim());
+    const [count, steps] = task1(input.trim());
     console.log(`${count} = ${steps.join("->")}`);
     rl.close();
 });

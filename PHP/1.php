@@ -1,5 +1,5 @@
 <?php
-function minOperation($s) {
+function task1($s) {
     $n = strlen($s);
     $steps = [];
     $current = "";
@@ -28,8 +28,8 @@ function minOperation($s) {
     return [$n, $steps];
 }
 
-$input = trim(fgets(STDIN));
-list($count, $steps) = minOperation($input);
+$input = readline();
+list($count, $steps) = task1($input);
 
 echo "$count = " . implode("->", $steps);
 echo "\n";

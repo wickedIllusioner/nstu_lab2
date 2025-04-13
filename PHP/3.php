@@ -1,9 +1,9 @@
-<?
+<?php
 function countEven($num) {
     $counter = 0;
     while ($num != 0) {
         $n = (int)($num % 10);
-        if ($n % 2 == 0) {
+        if ($n % 2 == 0 && $n != 0) {
             $counter += 1;
         }
         $num = (int)($num /= 10);

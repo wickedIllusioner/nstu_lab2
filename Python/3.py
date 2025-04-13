@@ -2,7 +2,7 @@ def countOdd(num: int):
     counter = 0
     while num != 0:
         n = num % 10
-        if n % 2 == 0: counter += 1
+        if n % 2 == 0 and n != 0: counter += 1
         num //= 10
     
     return counter

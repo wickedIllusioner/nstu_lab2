@@ -1,4 +1,4 @@
-def min_operation(s):
+def task1(s):
     n = len(s)
     steps = []
     current = ""
@@ -22,7 +22,7 @@ def min_operation(s):
     return (n, steps)
 
 input_str = input()
-result = min_operation(input_str)
+result = task1(input_str)
 
 print(f"{result[0]} = ", end="")
 print("->".join(result[1]))

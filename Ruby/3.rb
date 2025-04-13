@@ -2,7 +2,7 @@ def count_even(num)
   counter = 0
   while num > 0
     n = num % 10
-    if n % 2 == 0
+    if n % 2 == 0 and n != 0
         counter += 1
     end
     num /= 10
